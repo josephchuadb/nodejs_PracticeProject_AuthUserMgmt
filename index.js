@@ -5,17 +5,6 @@ const routes = require('./router/friends.js')
 
 let users = []
 
-const doesExist = (username)=>{
-  let userswithsamename = users.filter((user)=>{
-    return user.username === username
-  });
-  if(userswithsamename.length > 0){
-    return true;
-  } else {
-    return false;
-  }
-}
-
 const authenticatedUser = (username,password)=>{
   let validusers = users.filter((user)=>{
     return (user.username === username && user.password === password)
@@ -88,7 +77,7 @@ app.post("/register", (req,res) => {
 });
 
 
-const PORT =5000;
+const PORT = 5000;
 
 app.use("/friends", routes);
 
